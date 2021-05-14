@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Lacquer&family=Rubik:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+
+.loader {
+  border: 20px solid #c8c8c8;
+  border-top: 20px solid #d60131;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: 40%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+fieldset {
+  margin-top: 3em;
+  border: 0 none;
+  margin-bottom: 3em;
+}
+
+legend span.accessibility {
+  position: absolute;
+  left: -9999px;
+  width: 100px;
+  height: auto;
+  overflow: hidden;
+}
+
+body {
+  background-color: #fde3e4;
+  margin: 0 auto;
+  min-height: 150vh;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.navtext {
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  font-family: Rubik, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  padding: 1em;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #d60131;
+}
+
+.navtext:hover {
+  cursor: pointer;
+}
+
+#current {
+  color: #d60131;
+}
+
+footer {
+  background-color: #edd202;
+}
+
+p,
+.button {
+  font-size: 17px;
+  font-family: Rubik, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 66px;
+  font-family: Lacquer, Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  font-family: Lacquer, Arial, Helvetica, sans-serif;
+}
+
+.button {
+  background-color: #38a751;
+  color: #fff;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 5%;
+  max-width: 170px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.form-error {
+  display: none;
+  color: #d60131;
+}
+
+.validated {
+  display: none;
+  color: #38a751;
+}
+
+@media only screen and (min-width: 700px) {
+  .navtext {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 45px;
+  }
+
+  .blog-container {
+    max-width: 790px;
+    padding-left: 4em;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  h2 {
+    font-size: 55px;
+  }
+}
