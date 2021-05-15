@@ -1,13 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Lacquer&family=Rubik:ital,wght@0,400;0,500;1,400;1,500&display=swap");
 
 .loader {
-  border: 20px solid #7f5258;
+  border: 20px solid #7f5258c1;
   border-top: 20px solid #d60131;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   margin-left: 40%;
   animation: spin 2s linear infinite;
+}
+
+.logo {
+  max-width: 200px;
+  padding-left: 3em;
+  padding-top: 1em;
 }
 
 @keyframes spin {
@@ -44,7 +50,12 @@ nav {
   flex-direction: row;
 }
 
-.navtext {
+.footer {
+  text-align: center;
+}
+
+.navtext,
+.footer-text {
   font-size: 20px;
   color: #000;
   text-decoration: none;
@@ -77,6 +88,12 @@ footer {
   background-color: #edd202;
 }
 
+.copyright,
+h1,
+h2 {
+  font-family: Lacquer, Arial, Helvetica, sans-serif;
+}
+
 p,
 .button {
   font-size: 17px;
@@ -87,12 +104,10 @@ p,
 
 h1 {
   font-size: 66px;
-  font-family: Lacquer, Arial, Helvetica, sans-serif;
 }
 
 h2 {
   font-size: 32px;
-  font-family: Lacquer, Arial, Helvetica, sans-serif;
 }
 
 .button {
@@ -104,10 +119,12 @@ h2 {
   max-width: 170px;
   margin: 0 auto;
   text-align: center;
+  border: none;
 }
 
 .button:hover {
   cursor: pointer;
+  box-shadow: 5px 10px 5px 5px #d601332e;
 }
 
 .form-error {
