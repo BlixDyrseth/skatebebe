@@ -6,41 +6,35 @@ const subjectError = document.querySelector("#subjectError");
 const email = document.querySelector("#email");
 const emailError = document.querySelector("#emailError");
 const message = document.querySelector("#message");
-const messageError = document.querySelector("#messageError")
-const fromValidated = document.querySelector("#validateForm")
+const messageError = document.querySelector("#messageError");
+const fromValidated = document.querySelector("#validateForm");
+const formButton = document.querySelector("#formButton");
 
 
 
-function validateForm(event) {
-    event.preventDefault();
+function checkIfButtonIsDisabled() {
 
-    if(checkLenght(fullName.value, 5) === true) {
-        fullNameError.style.display = "none";
+    if(checkLenght(fullName.value, 5) && checkLenght(subject.value, 15) && checkLenght(message.value, 25) && validateEmail(email.value)) {
+        formButton.disabled = false;
     } else {
-        fullNameError.style.display = "block";
+        fromValidated.innerHTML = "";
+        formButton.disabled = true;
     }
-
-    if(checkLenght(subject.value, 15) === true) {
-        subjectError.style.display = "none";
-    } else {
-        subjectError.style.display = "block";
-    }
-
-    if(checkLenght(message.value, 25)) {
-        messageError.style.display = "none";
-    } else {
-        messageError.style.display = "block";
-    }
-
-    if(validateEmail(email.value) === true) {
-        emailError.style.display = "none";
-    } else {
-        emailError.style.display = "block";
-    }
-       
+           
 }
 
-form.addEventListener("submit", validateForm);
+fullName.addEventListener("keyup", checkIfButtonIsDisabled);
+subject.addEventListener("keyup", checkIfButtonIsDisabled);
+message.addEventListener("keyup", checkIfButtonIsDisabled);
+email.addEventListener("keyup", checkIfButtonIsDisabled);
+
+function submitForm(event) {
+    event.preventDefault();
+    fromValidated.innerHTML += `<div class="validated">Message sendt!</div>`;
+    form.reset();
+}
+
+form.addEventListener("submit", submitForm);
 
 function checkLenght(value, len) {
     if (value.trim().length > len) {

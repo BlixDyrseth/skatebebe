@@ -4,6 +4,8 @@ const titleDetails = document.querySelector("#titledetails");
 
 const queryString = document.location.search;
 
+const modal = document.querySelector("#modal");
+
 const params = new URLSearchParams(queryString);
 
 const id = params.get("id");
@@ -23,6 +25,11 @@ async function getOnePost() {
 
         createHtml(detail);
 
+        const modalPicture = document.getElementsByClassName("wp-block-image");
+
+
+        modal.innerHTML += `<img class="modal-img" id="img" ${modalPicture}";/>`
+
     }
     catch(error) {
         console.log(error);
@@ -37,6 +44,28 @@ function createHtml(detail) {
     <div class="detail-text">
     <p>${detail.content.rendered}</p>
     </div>`
+}
+
+function createmodal (detail) {
+    modal.innerHTML += `<img class="modal-img" id="img"${modalPicture}";/>`
+}
+
+function makeModal (){
+    const pictures = document.getElementsByClassName("wp-block-image");
+    const modalImg = document.getElementsByClassName("modal-img");
+
+
+    pictures.onclick = function() {
+        modalImg.style.display = "block";
+        console.log("MY mom");
+    }
+
+    window.onclick = function(event) {
+        if(event.target == pictures) {
+            modalImg.style.display = "none";
+            console.log("Your mom");
+        }
+    }
 }
 
 
