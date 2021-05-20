@@ -36,6 +36,7 @@ function submitForm(event) {
 
 form.addEventListener("submit", submitForm);
 
+
 function checkLenght(value, len) {
     if (value.trim().length > len) {
         return true;
