@@ -1,11 +1,11 @@
 
 let index = 10;
 
-const text = "per_page=";
+const text = "?per_page=";
 
 let perPage = text + index;
 
-let url = "https://ingridblixdyrseth.no/blog/wp-json/wp/v2/posts?";
+const url = "https://ingridblixdyrseth.no/blog/wp-json/wp/v2/posts";
 
 const loadMoreBtn = document.querySelector("#loadMoreBtn");
 
@@ -13,16 +13,21 @@ const blogContainer = document.querySelector(".blog-container");
 
 async function getPosts() {
     try {
-        const response = await fetch(url + `per_page=${index}`);
+        const response = await fetch(url + `?per_page=${index}`);
         const posts = await response.json();
         
+        console.log(response);
 
         blogContainer.innerHTML = "";
 
+
+        loadMoreBtn.addEventListener("click", loadMore);
+
         for(let i = 0; i < posts.length; i++) {
-   
+         
             console.log(posts[i]);
             const post = posts[i];
+
     
             blogContainer.innerHTML += `<div class="post-block">
             <a href="post.html?id=${post.id}">
@@ -34,14 +39,7 @@ async function getPosts() {
             <a href="post.html?id=${post.id}"><div class="button">Read more</div>
             </a>
             </div>
-            </div>`
-        }
-
-        loadMoreBtn.addEventListener("click", (e) => {
-            index = index + 10;
-            console.log("Hello");   
-            console.log(index);
-            });
+            </div>`; }
 
    }
     catch(error) {
@@ -50,9 +48,20 @@ async function getPosts() {
     }
 }
 
+function loadMore() {
+    index = index * 2;
+    if(index <= 20) {
+     loadMoreBtn.style.display = "none";
+    }
+    getPosts();
+    console.log("Hello");   
+    console.log(index);
+}
 
 
-getPosts();
+
+
+getPosts(url);
 
 
 

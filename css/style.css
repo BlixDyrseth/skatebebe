@@ -44,7 +44,6 @@ img {
 }
 
 .carousel-container {
-  background: #38a751;
   height: 100%;
   position: relative;
   display: flex;
@@ -64,8 +63,7 @@ img {
   flex-direction: column;
   width: 300px;
   height: 400px;
-  transition: all 0.3s;
-  margin: 0;
+  margin-right: 7.5em;
 }
 
 .carousel-button {
@@ -77,11 +75,11 @@ img {
 }
 
 .carousel-button--left {
-  left: -5px;
+  left: 10px;
 }
 
 .carousel-button--right {
-  right: -5px;
+  right: 10px;
 }
 
 .carousel-button img {
@@ -112,7 +110,6 @@ img {
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  margin-left: 40%;
   animation: spin 2s linear infinite;
 }
 
@@ -199,10 +196,6 @@ form {
 .featured-img {
   max-width: 400px;
   object-fit: cover;
-}
-
-.text-block {
-  max-width: 400px;
 }
 
 body {
@@ -338,7 +331,7 @@ h2 {
   font-size: 24px;
   border-radius: 5%;
   max-width: 170px;
-  margin: 0 auto;
+  margin: 1em auto;
   text-align: center;
   border: none;
 }
@@ -369,7 +362,33 @@ h2 {
   align-items: center;
 }
 
+.main-contact,
+.main-about {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: space-around;
+}
+.contact-img {
+  display: none;
+}
+.about-img {
+  margin: 1em;
+  max-width: 500px;
+}
+
+.about-text {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
 @media only screen and (min-width: 700px) {
+  .main-contact,
+  .main-about {
+    flex-direction: row;
+  }
   .logo {
     padding-left: 3em;
   }
@@ -398,15 +417,24 @@ h2 {
     font-size: 66px;
   }
   .carousel {
-    width: 400px;
+    width: 420px;
   }
   .carousel-slide {
-    width: 400px;
-    margin-right: 1em;
+    width: 420px;
+    margin: 0;
   }
 }
 
 @media only screen and (min-width: 950px) {
+  .main-about {
+    flex-direction: row;
+  }
+  .contact-img {
+    display: flex;
+    max-width: 60%;
+    padding-top: 2.5em;
+    margin-block-start: 0.67em;
+  }
   .menu {
     margin: 0 auto;
     display: flex;
@@ -442,12 +470,19 @@ h2 {
   }
 
   .carousel {
-    width: 820px;
+    width: 808px;
+  }
+  .carousel-slide {
+    width: 406px;
+    margin-right: 1em;
   }
 }
 
 @media only screen and (min-width: 1350px) {
   .carousel {
     width: 1232px;
+  }
+  .carousel-slide {
+    width: 403px;
   }
 }

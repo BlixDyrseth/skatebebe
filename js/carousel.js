@@ -30,7 +30,6 @@ async function getLastPosts() {
 
         }
  
-
    }
     catch(error) {
         console.log(error);
@@ -45,74 +44,25 @@ const track = document.querySelector(".carousel");
 const slide = document.getElementsByClassName("carousel-track");
 
 
-const slideWidth = track.getBoundingClientRect().width + 8;
-
-console.log(slideWidth);
-
 let index = 0;
 
+    nextButton.addEventListener("click", () => {
 
-function checkLenghtOfLargeScreen(largeWindow) {
-
-    if (largeWindow.matches) {
-nextButton.addEventListener("click", () => {
+        index = (index < 6) ? index + 1 : 6;
+        carouselContainer.style.transform = "translate(" + (index) * -420 + "px)";
+      
+        console.log(index);
     
-    console.log("Hello");
+        });
+        
+     prevButton.addEventListener("click", () => {
 
-    index = (index < 1) ? index + 1 : 0;
-    carouselContainer.style.transform = "translate(" + (index) * -1240 + "px)";
-  
-    console.log(index);
-
-    });
-
-prevButton.addEventListener("click", () => {
-
-    const track = document.querySelector(".carousel");
-    const slideWidth = track.getBoundingClientRect().width + 8;
-    
-    console.log("Howdy");
-    index = (index < 0) ? index - 1 : 0;
-    carouselContainer.style.transform = "translate(" + (index) * -1240 + "px)";
-
-    console.log(index);
-});
-    }
-}
-
-const largeWindow = window.matchMedia("(min-width: 1350px)");
-checkLenghtOfLargeScreen(largeWindow);
-largeWindow.addEventListener(checkLenghtOfLargeScreen);
+            console.log("Howdy");
+            index = (index < 0) ? index - 1 : 0;
+            carouselContainer.style.transform = "translate(" + (index) * -420 + "px)";
+        
+            console.log(index);
+        });
 
 
-function checkLenghtOfScreen(middelWindow) {
 
-    if (middelWindow.matches) {
-nextButton.addEventListener("click", () => {
-    
-    console.log("Hello");
-
-    index = (index < 3) ? index + 1 : 0;
-    carouselContainer.style.transform = "translate(" + (index) * -828 + "px)";
-  
-    console.log(index);
-
-    });
-
-prevButton.addEventListener("click", () => {
-
-     slideWidth = track.getBoundingClientRect().width + 8;
-    
-    console.log("Howdy");
-    index = (index < 0) ? index - 1 : 0;
-    carouselContainer.style.transform = "translate(" + (index) * -828 + "px)";
-
-    console.log(index);
-});
-    }
-}
-
-
-const middelWindow = window.matchMedia("(min-width: 950px)");
-checkLenghtOfScreen(middelWindow);
-middelWindow.addEventListener(checkLenghtOfScreen);

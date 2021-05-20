@@ -3,15 +3,6 @@ const hamburgerBtn = document.getElementById("hamburgerBtn");
 const closeBtn = document.getElementById("closeBtn");
 
 
-
-function checkLenghtOfScreen(x) {
-    if (x.matches) {
-        hiddenMenu.style.display = "flex";
-        hamburgerBtn.style.display = "none";
-        closeBtn.style.display = "none";
-    } 
-}
-
 hamburgerBtn.onclick = function() {
     hiddenMenu.style.display = "flex";
     hamburgerBtn.style.display = "none";
@@ -33,9 +24,20 @@ window.onclick = function(event) {
         console.log("Sup?")
     }
 }
+/*
+const mediaQuery = window.matchMedia("(min-width: 950px)")
+
+function checkLenghtOfScreen(e) {
+
+  if (e.matches) {
+    hiddenMenu.style.display = "flex";
 
 
-const x = window.matchMedia("(min-width: 950px)");
-checkLenghtOfScreen(x);
-x.addEventListener(checkLenghtOfScreen);
+    console.log('Media Query Matched!')
+  }
+}
+
+mediaQuery.addListener(checkLenghtOfScreen)
+
+checkLenghtOfScreen(mediaQuery)*/
 
