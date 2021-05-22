@@ -32,11 +32,12 @@ async function getPosts() {
             blogContainer.innerHTML += `<div class="post-block">
             <a href="post.html?id=${post.id}">
             <h2>${post.title.rendered}</h2>
-            </a>
             <img class="featured-img" src="${post.featured_media_src_url}"/>
+            </a>
             <div class="text-block"
             <p>${post.excerpt.rendered}</p>
-            <a href="post.html?id=${post.id}"><div class="button">Read more</div>
+            <a href="post.html?id=${post.id}">
+            <div class="button">Read more</div>
             </a>
             </div>
             </div>`; }

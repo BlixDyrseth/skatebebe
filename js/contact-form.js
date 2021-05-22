@@ -10,31 +10,55 @@ const messageError = document.querySelector("#messageError");
 const fromValidated = document.querySelector("#validateForm");
 const formButton = document.querySelector("#formButton");
 
+let isFormValid = false;
 
-
-function checkIfButtonIsDisabled() {
-
-    if(checkLenght(fullName.value, 5) && checkLenght(subject.value, 15) && checkLenght(message.value, 25) && validateEmail(email.value)) {
-        formButton.disabled = false;
-    } else {
-        fromValidated.innerHTML = "";
-        formButton.disabled = true;
-    }
-           
-}
-
-fullName.addEventListener("keyup", checkIfButtonIsDisabled);
-subject.addEventListener("keyup", checkIfButtonIsDisabled);
-message.addEventListener("keyup", checkIfButtonIsDisabled);
-email.addEventListener("keyup", checkIfButtonIsDisabled);
-
-function submitForm(event) {
+function validateForm(event) {
     event.preventDefault();
-    fromValidated.innerHTML += `<div class="validated">Message sendt!</div>`;
-    form.reset();
+
+    if(checkLenght(fullName.value, 5) === true) {
+        fullNameError.style.display = "none";
+        isFormValid = true;
+    } else {
+        fullNameError.style.display = "block";
+        isFormValid = false;
+    }
+
+    if(checkLenght(subject.value, 15) === true) {
+        subjectError.style.display = "none";
+        isFormValid = true;
+    } else {
+        subjectError.style.display = "block";
+        isFormValid = false;
+    }
+
+    if(checkLenght(message.value, 25) === true) {
+        messageError.style.display = "none";
+        isFormValid = true;
+    } else {
+        messageError.style.display = "block";
+        isFormValid = false;
+    }
+
+    if(validateEmail(email.value) === true) {
+        emailError.style.display = "none";
+        isFormValid = true;
+    } else {
+        emailError.style.display = "block";
+        isFormValid = false;
+    }   
+
+    console.log("denne funka da")
 }
 
-form.addEventListener("submit", submitForm);
+
+form.addEventListener("submit", validateForm); {
+    if (isFormValid === false) {
+    } else {
+        form.reset();
+        fromValidated.innerHTML += `<div class="validated">Message sendt!</div>`;
+    }
+    console.log(isFormValid)
+}
 
 
 function checkLenght(value, len) {
