@@ -12,8 +12,9 @@ const formButton = document.querySelector("#formButton");
 
 let isFormValid = false;
 
-function validateForm(event) {
-    event.preventDefault();
+
+
+function validateForm() {
 
     if(checkLenght(fullName.value, 5) === true) {
         fullNameError.style.display = "none";
@@ -37,6 +38,7 @@ function validateForm(event) {
     } else {
         messageError.style.display = "block";
         isFormValid = false;
+        console.log(isFormValid)
     }
 
     if(validateEmail(email.value) === true) {
@@ -51,14 +53,27 @@ function validateForm(event) {
 }
 
 
-form.addEventListener("submit", validateForm); {
-    if (isFormValid === false) {
-    } else {
-        form.reset();
-        fromValidated.innerHTML += `<div class="validated">Message sendt!</div>`;
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if(isFormValid) {
+        form.remove();
+        fromValidated.style.display = "block";
     }
-    console.log(isFormValid)
-}
+});
+
+fullName.addEventListener("input", () => {
+    validateForm();
+})
+
+subject.addEventListener("input", () => {
+    validateForm();
+})
+
+message.addEventListener("input", () => {
+    validateForm();
+})
+
+
 
 
 function checkLenght(value, len) {

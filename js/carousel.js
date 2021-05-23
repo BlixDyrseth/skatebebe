@@ -54,11 +54,11 @@ let index = 0;
         console.log(index);
     
         });
-        
+
      prevButton.addEventListener("click", () => {
 
             console.log("Howdy");
-            index = (index < 0) ? index - 1 : 0;
+            index = (index < 7) ? index - 1 : 3;
             carouselContainer.style.transform = "translate(" + (index) * -420 + "px)";
         
             console.log(index);
