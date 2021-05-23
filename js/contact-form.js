@@ -38,7 +38,6 @@ function validateForm() {
     } else {
         messageError.style.display = "block";
         isFormValid = false;
-        console.log(isFormValid)
     }
 
     if(validateEmail(email.value) === true) {
@@ -47,6 +46,7 @@ function validateForm() {
     } else {
         emailError.style.display = "block";
         isFormValid = false;
+        console.log(isFormValid)
     }   
 
     console.log("denne funka da")
@@ -73,7 +73,10 @@ message.addEventListener("input", () => {
     validateForm();
 })
 
-
+email.addEventListener("input", () => {
+    validateForm();
+    console.log("Halla");
+})
 
 
 function checkLenght(value, len) {
