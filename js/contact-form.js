@@ -13,8 +13,9 @@ const formButton = document.querySelector("#formButton");
 let isFormValid = false;
 
 
+function validateForm(event) {
 
-function validateForm() {
+    event.preventDefault();
 
     if(checkLenght(fullName.value, 5) === true) {
         fullNameError.style.display = "none";
@@ -52,31 +53,19 @@ function validateForm() {
     console.log("denne funka da")
 }
 
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if(isFormValid) {
+function checkIfvalidated(event) {
+    if(checkLenght(fullName.value, 5) && checkLenght(subject.value, 15) && checkLenght(message.value, 25)  && validateEmail(email.value) === true){
         form.remove();
         fromValidated.style.display = "block";
-    }
-});
+    } else {
+    console.log("didn´t work sucka");
+}
+}
 
-fullName.addEventListener("input", () => {
-    validateForm();
-})
+form.addEventListener("submit", validateForm);
 
-subject.addEventListener("input", () => {
-    validateForm();
-})
+form.addEventListener("submit", checkIfvalidated);
 
-message.addEventListener("input", () => {
-    validateForm();
-})
-
-email.addEventListener("input", () => {
-    validateForm();
-    console.log("Halla");
-})
 
 
 function checkLenght(value, len) {
