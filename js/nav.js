@@ -21,7 +21,6 @@ window.onclick = function(event) {
         hiddenMenu.style.display = "none";
         hamburgerBtn.style.display = "block"
         closeBtn.style.display = "none";
-        console.log("Sup?")
     }
 }
 /*

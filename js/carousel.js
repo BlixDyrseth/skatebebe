@@ -50,15 +50,14 @@ let index = 0;
 
         index = (index < 6) ? index + 1 : 6;
         carouselContainer.style.transform = "translate(" + (index) * -420 + "px)";
-      
-        console.log(index);
+   
     
         });
 
      prevButton.addEventListener("click", () => {
 
             console.log("Howdy");
-            index = (index < 7) ? index - 1 : 3;
+            index = (index > 0) ? index - 1 : 0;
             carouselContainer.style.transform = "translate(" + (index) * -420 + "px)";
         
             console.log(index);

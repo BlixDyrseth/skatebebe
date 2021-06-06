@@ -5,7 +5,7 @@ const text = "?per_page=";
 
 let perPage = text + index;
 
-const url = "https://ingridblixdyrseth.no/blog/wp-json/wp/v2/posts";
+const url = "https://ingridblixdyrseth.no/blog/wp-json/wp/v2/posts?_embed";
 
 const loadMoreBtn = document.querySelector("#loadMoreBtn");
 
@@ -13,7 +13,7 @@ const blogContainer = document.querySelector(".blog-container");
 
 async function getPosts() {
     try {
-        const response = await fetch(url + `?per_page=${index}`);
+        const response = await fetch(url + `&per_page=${index}`);
         const posts = await response.json();
         
         console.log(response);
@@ -28,11 +28,13 @@ async function getPosts() {
             console.log(posts[i]);
             const post = posts[i];
 
+            console.log(post._embedded["wp:featuredmedia"][0].alt_text)
+
     
             blogContainer.innerHTML += `<div class="post-block">
             <a href="post.html?id=${post.id}">
             <h2>${post.title.rendered}</h2>
-            <img class="featured-img" src="${post.featured_media_src_url}"/>
+            <img class="featured-img" src="${post.featured_media_src_url}" alt="${post._embedded["wp:featuredmedia"][0].alt_text}"/>
             </a>
             <div class="text-block"
             <p>${post.excerpt.rendered}</p>

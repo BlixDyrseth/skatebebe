@@ -8,7 +8,7 @@ const params = new URLSearchParams(queryString);
 
 const id = params.get("id");
 
-const postUrl = "https://ingridblixdyrseth.no/blog/wp-json/wp/v2/posts/" + id;
+const postUrl = "https://ingridblixdyrseth.no/blog/wp-json/wp/v2/posts/" + id +"?_embed";
 
 console.log(postUrl);
 
@@ -41,7 +41,7 @@ function createHtml(detail) {
     <img class="modal-img" src="${detail.featured_media_src_url}"/>
     </div>
     <div class="detail-text">
-    <img class="first-img" src="${detail.featured_media_src_url}"/>
+    <img class="first-img" src="${detail.featured_media_src_url}" alt="${detail._embedded["wp:featuredmedia"][0].alt_text}"/>
     <p>${detail.content.rendered}</p>
     </div>`
 
@@ -77,6 +77,8 @@ function createHtml(detail) {
 
 
 }
+
+
 
 
 
